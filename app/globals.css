@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080B10;
+  --foreground: #E8EDF2;
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Result stamp reveal */
+@keyframes stampIn {
+  0% {
+    opacity: 0;
+    transform: scale(2) rotate(-20deg);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.95) rotate(-6deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-6deg);
+  }
+}
+
+/* Slide-up reveal for result cards */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+
+/* Gold text with moving white shine */
+@keyframes shimmerText {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-text {
+  background-size: 200% auto;
+  animation: shimmerText 9s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* Slow pulse/blink for subtle attention */
+@keyframes slowBlink {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(201,162,39,0);
+  }
+  50% {
+    opacity: 0.45;
+    text-shadow: 0 0 12px rgba(201,162,39,0.4);
+  }
+}
+
+.slow-blink {
+  animation: slowBlink 3.5s ease-in-out infinite;
+}
