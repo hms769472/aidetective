@@ -42,6 +42,8 @@ export type Case = {
   title: string;
   difficulty: number;
   briefing: string;
+  /** Optional cover image path (from /public), e.g. "/cases/case-001.jpeg" */
+  image?: string;
   suspects: Suspect[];
   evidence: Evidence[];
   timeline: TimelineEvent[];
